@@ -2,9 +2,9 @@
 
 Ok, as per my normal Blog postings... Rabbit Holes... 
 
-This all started as a simply MVP for a [Apache Flink](https://flink.apache.org) [Mqtt](https://mqtt.org) Source Connector. 
+This all started as a simply MVP for a [Apache Flink](https://flink.apache.org) [MQTT](https://mqtt.org) Source Connector. 
 
-This was mostly done to demostrate a IoT pipeline based on a source of json payload being written [Mqtt](https://mqtt.org) broker, consumed via this source connector, consumed by flink and pushed into Fluss and into [Prometheus](https://prometheus.io) with a [Grafana Dashboard](https://grafana.com).
+This was mostly done to demostrate a IoT pipeline based on a source of **JSON** payload being written [MQTT](https://mqtt.org) broker, consumed via this source connector, consumed by flink and pushed into Fluss and into [Prometheus](https://prometheus.io) with a [Grafana Dashboard](https://grafana.com).
 
 As part of this the [Eclipse library](https://github.com/eclipse-paho/paho.mqtt.java/tree/master) used is based around org.eclipse.paho.client.mqttv3. 
 
