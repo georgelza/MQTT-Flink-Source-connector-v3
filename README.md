@@ -4,7 +4,7 @@ Ok, as per my normal Blog postings... Rabbit Holes...
 
 This all started as a simply MVP for a [Apache Flink](https://flink.apache.org) [MQTT](https://mqtt.org) Source Connector. 
 
-This was mostly done to demostrate a IoT pipeline based on a source of **JSON** payload being written [MQTT](https://mqtt.org) broker, consumed via this source connector, consumed by flink and pushed into Fluss and into [Prometheus](https://prometheus.io) with a [Grafana Dashboard](https://grafana.com).
+This was mostly done to demostrate a IoT pipeline based on a source of **JSON** payload being written [MQTT](https://mqtt.org) Broker, consumed via this source connector, consumed by flink and pushed into Fluss and into [Prometheus](https://prometheus.io) with a [Grafana Dashboard](https://grafana.com).
 
 As part of this the [Eclipse library](https://github.com/eclipse-paho/paho.mqtt.java/tree/master) used is based around org.eclipse.paho.client.mqttv3. 
 
@@ -178,11 +178,11 @@ When a table is created using Flink SQL and subsequently used in an INSERT INTO 
 
 1. SQL Parsing and Validation (Flink Internal + `MqttTableSourceFactory.java`):
 
-2. When you execute a CREATE TABLE DDL statement for your MQTT source (e.g., `CREATE TABLE mqtt_source_table ...  WITH ('connector' = 'mqtt', ...))`, Flink's internal SQL parser processes the statement.
+2. When you execute a CREATE TABLE DDL statement for your MQTT v3 source (e.g., `CREATE TABLE mqtt_source_table ...  WITH ('connector' = 'mqtt-v3', ...))`, Flink's internal SQL parser processes the statement.
 
 During the validation phase, Flink recognizes the `'connector' = 'mqtt-v3'` property. 
 
-3. This triggers the lookup for a `DynamicTableSourceFactory` with the identifier `"mqtt"`. This is where your `MqttTableSourceFactory` comes into play.
+3. This triggers the lookup for a `DynamicTableSourceFactory` with the identifier `"mqtt-v3"`. This is where your `MqttTableSourceFactory` comes into play.
 
 4. Flink calls methods within `MqttTableSourceFactory` (like `requiredOptions()` and `optionalOptions()`) to validate the provided table properties against what your connector expects. If there are missing or invalid options, `ValidationExceptions` would be thrown here (as we saw and corrected earlier).
 
